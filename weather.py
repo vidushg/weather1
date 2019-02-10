@@ -6,13 +6,23 @@ import requests
 import json
 
 url = "http://api.openweathermap.org/data/2.5/weather?appid=d0c61e2af77bea9ba7f337ad3f0495d6&q="
+locurl="http://api.ipstack.com/check?access_key=01ba0bb834c723d9d47f061780376e45"
 
-cityname = input("Where are you? ")
+res = requests.get(locurl)
+jsonobj = res.json()
+
+city = jsonobj['city']
+
+#Option to choose between detecting user's location and their desired location
+
+#print (city)
+cityname = city
+#cityname = input("Where are you? ")
 if cityname!="":
 	final = url + cityname
 	response = requests.get(final)
 	jsonobject = response.json()
-	print (jsonobject)
+	#print (jsonobject)
 	if jsonobject["cod"] != "404":
 			info = jsonobject["main"]
 			temp = info["temp"]
@@ -22,4 +32,4 @@ if cityname!="":
 	else:
 			print(" City Not Found ")
 else: 
-	print("No")
+	print("Invalid input")
