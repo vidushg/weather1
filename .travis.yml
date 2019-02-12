@@ -1,7 +1,7 @@
 language: python
 
-#install:
-#        - pip install -r requirements.txt
+install:
+        - pip install requests
 
 script:
         - pytest -s test_weather.py
