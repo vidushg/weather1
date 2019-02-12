@@ -5,5 +5,5 @@ install:
         - pip install -r requirements.txt
 
 script:
-        - pytest
+        - pytest -s test_weather.py
 
