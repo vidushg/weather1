@@ -4,5 +4,5 @@ install:
         - pip install requests
 
 script:
-        - pytest -s test_weather.py
+        - pytest  test_weather.py
 
